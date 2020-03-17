@@ -22,3 +22,8 @@
 - Vector's arithmatic operators will not check if other vector's size is equal with itself
 - This program assumes that given linear system has exactly one solution
   In cases where number of solution is infinite or zero is not handled properly
+
+## Compiler
+- I used gcc version 8.1.0 x86_64 posix to build and run this program.
+- Build command: g++ ./source/*.cpp -Iinclude -o ./linear_system.exe
+- Run command: ./linear_system.exe
