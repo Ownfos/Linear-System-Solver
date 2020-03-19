@@ -31,7 +31,7 @@ namespace ownfos
             matrix[row] /= matrix[row][row];
             
             // Subtract current row from all other rows below it
-            // to make reduced row echelon form
+            // to make row echelon form
             for(auto otherRow = row + 1; otherRow < dimension; ++otherRow)
                 matrix[otherRow] -= matrix[row] * matrix[otherRow][row];
         }
