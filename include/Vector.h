@@ -1,44 +1,31 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include <vector>
+#include <array>
 #include <iostream>
 
 namespace ownfos
 {
+    template<size_t dimension>
     class Vector
     {
     public:
-        Vector() = default;
-
-        Vector(const std::vector<double>& data);
-        Vector(const std::initializer_list<double>& data);
-
-        Vector(const Vector&) = default;
-        Vector(Vector&&) noexcept = default;
+        using Elements = std::array<double, dimension>;
+        using Index = size_t;
         
-        ~Vector() = default;
+        Vector(const Elements& elements = {});
 
-        Vector& operator=(const Vector&) = default;
-        Vector& operator=(Vector&&) noexcept = default;
+        double& operator[](Index index);
+        double operator[](Index index) const;
 
-        Vector& operator/=(double factor);
-        Vector& operator-=(const Vector& other);
-
-        Vector operator*(double factor) const;
-        Vector operator/(double factor) const;
-        Vector operator-(const Vector& other) const;
-
-        double& operator[](size_t index);
-        double operator[](size_t index) const;
-
-        friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
-
-        void Resize(size_t length);
+        template<size_t _dimension>
+        friend std::ostream& operator<<(std::ostream& os, const Vector<_dimension>& vector);
 
     private:
-        std::vector<double> data;
+        Elements elements;
     };
 }
+
+#include "Vector.hpp"
 
 #endif

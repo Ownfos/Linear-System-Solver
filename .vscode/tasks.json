@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ ./source/*.cpp -Iinclude -o ./${workspaceFolderBasename}.exe"
+            "command": "g++ -std=c++17 ./source/*.cpp -Iinclude -o ./${workspaceFolderBasename}.exe"
         },
         {
             "label": "run",
